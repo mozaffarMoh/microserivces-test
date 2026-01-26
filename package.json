@@ -10,7 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
+    "@heroicons/react": "^2.2.0",
+    "@moi/ui-lib": "^0.0.2",
     "@tailwindcss/vite": "^4.1.13",
+    "heroicons": "^2.2.0",
     "moi-ui-lib": "file:./moi-ui-lib-0.0.1.tgz",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

@@ -1,3 +1,2 @@
 @import "tailwindcss";
-
-@import "moi-ui-lib/dist/ui-lib.css";
+@import "@moi/ui-lib/dist/ui-lib.css";

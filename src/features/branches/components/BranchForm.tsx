@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BranchFormValues } from '../types';
+import React, { useState } from "react";
+import { BranchFormValues } from "../types";
 
 interface BranchFormProps {
   onSubmit: (values: BranchFormValues) => void;
@@ -7,18 +7,20 @@ interface BranchFormProps {
 }
 
 export const BranchForm: React.FC<BranchFormProps> = ({ onSubmit, branch }) => {
-  const [formData, setFormData] = useState<BranchFormValues>(branch || {
-    name: '',
-    address: '',
-    city: '',
-    state: '',
-    zipCode: '',
-    status: 'active',
-  });
+  const [formData, setFormData] = useState<BranchFormValues>(
+    branch || {
+      name: "",
+      address: "",
+      city: "",
+      state: "",
+      zipCode: "",
+      status: "active",
+    },
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -29,7 +31,7 @@ export const BranchForm: React.FC<BranchFormProps> = ({ onSubmit, branch }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <h2 className="text-xl font-bold text-center text-gray-800">
-        {branch ? 'Edit Branch' : 'Add New Branch'}
+        {branch ? "Edit Branch" : "Add New Branch"}
       </h2>
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -116,7 +118,9 @@ export const BranchForm: React.FC<BranchFormProps> = ({ onSubmit, branch }) => {
           id="status"
           name="status"
           value={formData.status}
-          onChange={(e) => setFormData(prev => ({ ...prev, status: e.target.value as 'active' | 'inactive' }))}
+          onChange={(e) =>
+            setFormData((prev) => ({ ...prev, status: e.target.value as "active" | "inactive" }))
+          }
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         >
           <option value="active">Active</option>
@@ -125,11 +129,8 @@ export const BranchForm: React.FC<BranchFormProps> = ({ onSubmit, branch }) => {
       </div>
 
       <div className="flex justify-end space-x-2">
-        <button
-          type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          {branch ? 'Update' : 'Create'}
+        <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          {branch ? "Update" : "Create"}
         </button>
       </div>
     </form>

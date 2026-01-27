@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { BranchList } from '../components/BranchList';
-import { BranchForm } from '../components/BranchForm';
-import { branchService } from '../services/branchService';
-import { Branch, BranchFormValues } from '../types';
-import { Modal } from '../../../components/ui/Modal';
-import { Button } from '../../../components/ui/Button';
+import React, { useState } from "react";
+import { BranchList } from "../components/BranchList";
+import { BranchForm } from "../components/BranchForm";
+import { branchService } from "../services/branchService";
+import { Branch, BranchFormValues } from "../types";
+import { Modal } from "../../../components/ui/Modal";
+import { Button } from "../../../components/ui/Button";
 
 export const BranchesPage: React.FC = () => {
   const [branches, setBranches] = useState<Branch[]>([]);
@@ -18,26 +18,24 @@ export const BranchesPage: React.FC = () => {
 
   const handleDelete = async (id: number) => {
     await branchService.deleteBranch(id);
-    setBranches(prev => prev.filter(branch => branch.id !== id));
+    setBranches((prev) => prev.filter((branch) => branch.id !== id));
   };
 
   const handleFormSubmit = async (values: BranchFormValues) => {
     try {
       if (editingBranch) {
         const updatedBranch = await branchService.updateBranch(editingBranch.id!, values);
-        setBranches(prev => 
-          prev.map(branch => 
-            branch.id === editingBranch.id ? updatedBranch : branch
-          )
+        setBranches((prev) =>
+          prev.map((branch) => (branch.id === editingBranch.id ? updatedBranch : branch)),
         );
         setEditingBranch(undefined);
       } else {
         const newBranch = await branchService.createBranch(values);
-        setBranches(prev => [...prev, newBranch]);
+        setBranches((prev) => [...prev, newBranch]);
       }
       setShowForm(false);
     } catch (error) {
-      console.error('Error saving branch:', error);
+      console.error("Error saving branch:", error);
     }
   };
 
@@ -46,7 +44,7 @@ export const BranchesPage: React.FC = () => {
       const fetchedBranches = await branchService.fetchBranches();
       setBranches(fetchedBranches);
     } catch (error) {
-      console.error('Error fetching branches:', error);
+      console.error("Error fetching branches:", error);
     }
   };
 
@@ -58,20 +56,12 @@ export const BranchesPage: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Branches Management</h1>
-        <Button
-          onClick={() => setShowForm(true)}
-          variant="primary"
-          size="medium"
-        >
+        <Button onClick={() => setShowForm(true)} variant="primary" size="lg">
           Add Branch
         </Button>
       </div>
 
-      <BranchList
-        branches={branches}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+      <BranchList branches={branches} onEdit={handleEdit} onDelete={handleDelete} />
 
       <Modal
         isOpen={showForm}
@@ -79,12 +69,9 @@ export const BranchesPage: React.FC = () => {
           setShowForm(false);
           setEditingBranch(undefined);
         }}
-        title={editingBranch ? 'Edit Branch' : 'Add Branch'}
+        title={editingBranch ? "Edit Branch" : "Add Branch"}
       >
-        <BranchForm
-          onSubmit={handleFormSubmit}
-          branch={editingBranch}
-        />
+        <BranchForm onSubmit={handleFormSubmit} branch={editingBranch} />
       </Modal>
     </div>
   );

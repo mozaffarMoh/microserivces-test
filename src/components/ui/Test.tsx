@@ -1,6 +1,6 @@
 // Test.tsx
 import React from "react";
-import { Text } from "@moia/ui-lib";
+import { Button, Text, Tooltip } from "@moia/ui-lib";
 
 const Test: React.FC = () => {
   return (
@@ -8,6 +8,10 @@ const Test: React.FC = () => {
       <Text variant="h1" color={"secondary"} weight={"extrabold"} className="mb-4">
         Test Page
       </Text>
+
+      <Tooltip content="This is a tooltip" delay={1000}>
+        <Button variant={"secondary"}>TEST</Button>
+      </Tooltip>
     </div>
   );
 };

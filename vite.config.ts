@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   build: {
     target: "esnext",
-    chunkSizeWarningLimit: 2600,
+    chunkSizeWarningLimit: 2900,
   },
 });

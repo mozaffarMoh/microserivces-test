@@ -4,7 +4,7 @@ import { BranchForm } from "../components/BranchForm";
 import { branchService } from "../services/branchService";
 import { Branch, BranchFormValues } from "../types";
 import { Modal } from "../../../components/ui/Modal";
-import { Button } from "../../../components/ui/Button";
+import { Button } from "../../../components/ui/button";
 
 export const BranchesPage: React.FC = () => {
   const [branches, setBranches] = useState<Branch[]>([]);
@@ -56,7 +56,7 @@ export const BranchesPage: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Branches Management</h1>
-        <Button onClick={() => setShowForm(true)} variant="primary" size="lg">
+        <Button onClick={() => setShowForm(true)} size="lg">
           Add Branch
         </Button>
       </div>

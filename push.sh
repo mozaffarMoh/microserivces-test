@@ -12,5 +12,5 @@ git add .
 # Commit with the message provided as the first argument
 git commit -m "$1"
 
-# Push to origin main
-git push -u origin main
+# Push
+git push

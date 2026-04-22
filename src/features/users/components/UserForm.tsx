@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { UserFormValues } from '../types';
-import { Input } from '../../../components/ui/Input';
-import { Button } from '../../../components/ui/Button';
+import React, { useState } from "react";
+import { UserFormValues } from "../types";
+import { Input } from "../../../components/ui/Input";
+import { Button } from "../../../components/ui/button";
 
 interface UserFormProps {
   onSubmit: (values: UserFormValues) => void;
@@ -11,18 +11,18 @@ interface UserFormProps {
 export const UserForm: React.FC<UserFormProps> = ({ onSubmit, user }) => {
   const [formData, setFormData] = useState<UserFormValues>(
     user || {
-      name: '',
-      email: '',
-      role: 'user',
-      status: 'active'
-    }
+      name: "",
+      email: "",
+      role: "user",
+      status: "active",
+    },
   );
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -34,14 +34,7 @@ export const UserForm: React.FC<UserFormProps> = ({ onSubmit, user }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-[var(--spacing-lg)]">
       <div className="form-group">
-        <Input
-          label="Name"
-          name="name"
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
+        <Input label="Name" name="name" type="text" value={formData.name} onChange={handleChange} required />
       </div>
 
       <div className="form-group">
@@ -56,7 +49,9 @@ export const UserForm: React.FC<UserFormProps> = ({ onSubmit, user }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="role" className="form-label">Role</label>
+        <label htmlFor="role" className="form-label">
+          Role
+        </label>
         <select
           id="role"
           name="role"
@@ -71,7 +66,9 @@ export const UserForm: React.FC<UserFormProps> = ({ onSubmit, user }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="status" className="form-label">Status</label>
+        <label htmlFor="status" className="form-label">
+          Status
+        </label>
         <select
           id="status"
           name="status"
@@ -86,9 +83,7 @@ export const UserForm: React.FC<UserFormProps> = ({ onSubmit, user }) => {
       </div>
 
       <div className="flex justify-end">
-        <Button type="submit" variant="primary">
-          {user ? 'Update User' : 'Add User'}
-        </Button>
+        <Button type="submit">{user ? "Update User" : "Add User"}</Button>
       </div>
     </form>
   );

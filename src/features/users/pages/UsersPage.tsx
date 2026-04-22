@@ -4,7 +4,7 @@ import { UserForm } from "../components/UserForm";
 import { userService } from "../services/userService";
 import { User, UserFormValues } from "../types";
 import { Modal } from "../../../components/ui/Modal";
-import { Button } from "../../../components/ui/Button";
+import { Button } from "../../../components/ui/button";
 
 export const UsersPage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -54,9 +54,7 @@ export const UsersPage: React.FC = () => {
     <div className="max-w-4xl mx-auto">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-gray-800">Users Management</h1>
-        <Button onClick={() => setShowForm(true)} variant="primary" size="md">
-          Add User
-        </Button>
+        <Button onClick={() => setShowForm(true)}>Add User</Button>
       </div>
 
       <UserList users={users} onEdit={handleEdit} onDelete={handleDelete} />

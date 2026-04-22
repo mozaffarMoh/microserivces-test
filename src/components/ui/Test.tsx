@@ -1,19 +1,41 @@
 // Test.tsx
 import React from "react";
-import { Button, Text, Tooltip } from "@moia/ui-lib";
+import { Stack, Text } from "@moia/ui-lib";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const Test: React.FC = () => {
   return (
-    <div className="py-12 ">
-      <Text variant="h1" color={"secondary"} weight={"extrabold"} className="mb-4">
+    <Stack padding={"Large"}>
+      <Text variant="h1" color={"info"}>
         Test Page
       </Text>
-
-      <Tooltip content="This is a tooltip" delay={1000}>
-        <Button variant={"secondary"}>TEST</Button>
-      </Tooltip>
-    </div>
+      <CustomSelect options={["Option 1", "Option 2", "Option 3"]} />
+    </Stack>
   );
 };
 
 export default Test;
+
+type Props = {
+  options: string[];
+  placeholder?: string;
+  onChange?: (value: string) => void;
+};
+
+const CustomSelect: React.FC<Props> = ({ options, placeholder = "Select an option", onChange }) => {
+  return (
+    <Select onValueChange={onChange}>
+      <SelectTrigger className="w-[200px] bg-pink-600">
+        <SelectValue placeholder={placeholder} />
+      </SelectTrigger>
+
+      <SelectContent>
+        {options.map((option) => (
+          <SelectItem key={option} value={option}>
+            {option}
+          </SelectItem>
+        ))}{" "}
+      </SelectContent>
+    </Select>
+  );
+};

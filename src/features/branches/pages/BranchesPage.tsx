@@ -5,6 +5,7 @@ import { branchService } from "../services/branchService";
 import { Branch, BranchFormValues } from "../types";
 import { Modal } from "../../../components/ui/Modal";
 import { Button } from "../../../components/ui/button";
+import { Select } from "@/components/ui/select";
 
 export const BranchesPage: React.FC = () => {
   const [branches, setBranches] = useState<Branch[]>([]);
@@ -73,6 +74,8 @@ export const BranchesPage: React.FC = () => {
       >
         <BranchForm onSubmit={handleFormSubmit} branch={editingBranch} />
       </Modal>
+
+      <Select />
     </div>
   );
 };

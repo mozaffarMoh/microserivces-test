@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@moia/ui-lib/dist/ui-lib.css";
+@import "@moi/ui-lib/dist/ui-lib.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";

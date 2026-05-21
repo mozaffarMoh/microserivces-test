@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Checkbox, DataTable, RadioGroup, RadioGroupItem, TextField } from "@moi/ui-lib";
+import { Button, Checkbox, DataTable, RadioGroup, RadioGroupItem, TextField } from "@artifact/ui-lib";
 import type { ColumnDef } from "@tanstack/react-table";
 
 type Employee = {

@@ -1,6 +1,7 @@
 import React from "react";
 import Toast, { toast, ToastBody, ToastDescription, ToastIcon, ToastTitle } from "@artifact/ui-lib/toast";
 import Button from "@artifact/ui-lib/button";
+import Datepicker from "@artifact/ui-lib/date-picker";
 
 const Test: React.FC = () => {
   return (
@@ -23,6 +24,8 @@ const Test: React.FC = () => {
           <ToastDescription>Description</ToastDescription>
         </ToastBody>
       </Toast>
+
+      <Datepicker />
     </div>
   );
 };

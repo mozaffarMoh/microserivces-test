@@ -1,8 +1,8 @@
 import React from "react";
 import Toast, { toast, ToastBody, ToastDescription, ToastIcon, ToastTitle } from "@artifact/ui-lib/toast";
 import Button from "@artifact/ui-lib/button";
-import View from "@marn.bayan/moi-icons/svg/3-d-view_Bulk_Rounded.svg";
 import { Switch } from "@artifact/ui-lib";
+import { MoiIcon } from "@marn.bayan/moi-icons/react";
 
 const Test: React.FC = () => {
   return (
@@ -25,9 +25,16 @@ const Test: React.FC = () => {
           <ToastDescription>Description</ToastDescription>
         </ToastBody>
       </Toast>
-
-      <img src={View} alt="view icon" />
       <Switch />
+
+      <MoiIcon
+        className="size-20"
+        name="home-03"
+        variant="Duotone"
+        shape="Rounded"
+        primaryColor={"blue"}
+        secondaryColor={"green"}
+      />
     </div>
   );
 };

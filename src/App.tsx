@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import { UsersPage } from "./features/users";
 import { BranchesPage } from "./features/branches";
 import Test from "./components/ui/Test";
+import "@artifact/ui-lib/ui-lib.css";
 
 function App() {
   return (

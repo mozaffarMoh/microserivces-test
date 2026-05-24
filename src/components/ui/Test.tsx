@@ -1,7 +1,8 @@
 import React from "react";
 import Toast, { toast, ToastBody, ToastDescription, ToastIcon, ToastTitle } from "@artifact/ui-lib/toast";
 import Button from "@artifact/ui-lib/button";
-import Datepicker from "@artifact/ui-lib/date-picker";
+import View from "@marn.bayan/moi-icons/svg/3-d-view_Bulk_Rounded.svg";
+import { Switch } from "@artifact/ui-lib";
 
 const Test: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Test: React.FC = () => {
         className="cursor-po"
         onClick={() => toast.success("this is success message !!")}
       />
-      <Toast>
+      <Toast open={true} tone={"success"}>
         <ToastIcon />
         <ToastBody>
           <ToastTitle>Title</ToastTitle>
@@ -25,7 +26,8 @@ const Test: React.FC = () => {
         </ToastBody>
       </Toast>
 
-      <Datepicker />
+      <img src={View} alt="view icon" />
+      <Switch />
     </div>
   );
 };
